@@ -18,7 +18,7 @@ class _SignInScreenState extends State<SignInScreen> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-              hexStringToColor("000000"),
+              hexStringToColor("6e2945"),
               hexStringToColor("6e2945"),
               hexStringToColor("9598a3")
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
