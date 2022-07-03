@@ -15,6 +15,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
+  TextEditingController _contactNumberController = TextEditingController();
+  TextEditingController _addressController = TextEditingController();
+  TextEditingController _easypaisaAccountController = TextEditingController();
+  TextEditingController _cnicController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,22 +67,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 20,
                 ),
                 reusableTextField("Contact Number", Icons.mobile_friendly, false,
-                    _emailTextController),
+                    _contactNumberController),
                 const SizedBox(
                   height: 20,
                 ),
                 reusableTextField("Address", Icons.location_on, false,
-                    _emailTextController),
+                    _addressController),
                 const SizedBox(
                   height: 20,
                 ),
                 reusableTextField("Easypaisa Account Number", Icons.payment, false,
-                    _emailTextController),
+                    _easypaisaAccountController),
                 const SizedBox(
                   height: 20,
                 ),
                 reusableTextField("CNIC Number", Icons.payment_outlined, false,
-                    _emailTextController),
+                    _cnicController),
                 const SizedBox(
                   height: 20,
                 ),
