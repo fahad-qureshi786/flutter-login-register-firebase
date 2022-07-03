@@ -9,6 +9,15 @@ Image logoWidget(String imageName) {
     color: Colors.white,
   );
 }
+Image logoWidgetHome(String imageName) {
+  return Image.asset(
+    imageName,
+    fit: BoxFit.cover,
+    width: 240,
+    height: 240,
+    color: Colors.white,
+  );
+}
 
 
 TextField reusableTextField(String text, IconData icon, bool isPasswordType, TextEditingController controller) {
