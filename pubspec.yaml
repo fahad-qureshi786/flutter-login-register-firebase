@@ -24,18 +24,17 @@ flutter:
   fonts:
     - family: Ruda
       fonts:
-        - asset: assets/fonts/Ruda-VariableFont_wght.ttf
-        - asset: assets/fonts/Ruda-Black.ttf
-        - asset: assets/fonts/Ruda-Bold.ttf
-        - asset: assets/fonts/Ruda-ExtraBold.ttf
-        - asset: assets/fonts/Ruda-Medium.ttf
+        - asset: assets/fonts/Ruda/Ruda-VariableFont_wght.ttf
+        - asset: assets/fonts/Ruda/static/Ruda-Black.ttf
+        - asset: assets/fonts/Ruda/static/Ruda-Bold.ttf
+        - asset: assets/fonts/Ruda/static/Ruda-ExtraBold.ttf
+        - asset: assets/fonts/Ruda/static/Ruda-Medium.ttf
           style: italic
     - family: Ruda-SemiBold
       fonts:
-        - asset: assets/fonts/Ruda-SemiBold.ttf
-        - asset: fonts/TrajanPro_Bold.ttf
+        - asset: assets/fonts/Ruda/static/Ruda-SemiBold.ttf
           weight: 700
     - family: Ruda-Regular
       fonts:
-        - asset: assets/fonts/Ruda-Regular.ttf
+        - asset: assets/fonts/Ruda/static/Ruda-Regular.ttf
           weight: 700
