@@ -66,7 +66,7 @@ Widget _getBody(int index) {
     case 3:
       return const SignInScreen(); // Create this function, it should return your fourth page as a widget
   }
-  return Center(
+  return const Center(
     child: Text("There is no page builder for this index."),
   );
 }
