@@ -11,6 +11,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List  images = [
+    'assets/images/craib.png',
+    'assets/images/money.gif',
+  ];
+  List textWidgets = <Widget>[
+     Text("Text 1", style: TextStyle(
+       fontSize: 30,
+       color: Colors.black
+     ),),
+     Text("Text 2"),
+  ];
+
+
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     Text('Home', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
@@ -28,40 +41,45 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          hexStringToColor("6e2945"),
-          hexStringToColor("6e2945"),
-          hexStringToColor("9598a3")
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                    20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+      body: PageView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: images.length,
+          itemBuilder: (_, index) {
+            return Container(
+              width: double.maxFinite,
+              height: double.maxFinite,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                      images[index]
+                  ),
+                  fit: BoxFit.fitWidth
+                )
               ),
-            ),
-            logoWidgetHome("assets/images/craib.png"),
-          ],
-        )
-      ),
-      bottomNavigationBar:  BottomNavigationBar(
+              child: Container(
+                margin: const EdgeInsets.only(top: 50, left: 20,  right: 20),
+                child: Row(
+                  children: [
+                    Column(
+                      children:  [
+                        textWidgets[index]
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            );
+          }),
+      bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: "Home",
-                backgroundColor: Colors.grey
-            ),
+                backgroundColor: Colors.grey),
             BottomNavigationBarItem(
                 icon: Icon(Icons.payment),
                 label: "Payment",
-                backgroundColor: Colors.grey
-            ),
+                backgroundColor: Colors.grey),
             BottomNavigationBarItem(
               label: "Profile",
               icon: Icon(Icons.person),
@@ -78,8 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedItemColor: Colors.black,
           iconSize: 40,
           onTap: _onItemTapped,
-          elevation: 5
-      ),
+          elevation: 5),
     );
   }
 }
