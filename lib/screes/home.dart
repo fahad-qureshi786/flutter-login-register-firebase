@@ -1,7 +1,8 @@
+import 'package:firebaseflutterlogin/screes/payment.dart';
+import 'package:firebaseflutterlogin/screes/profile.dart';
+import 'package:firebaseflutterlogin/screes/signin.dart';
+import 'package:firebaseflutterlogin/screes/welcome.dart';
 import 'package:flutter/material.dart';
-
-import '../reuseable/reuseable.dart';
-import '../utils/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,92 +12,61 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List  images = [
-    'assets/images/craib.png',
-    'assets/images/money.gif',
-  ];
-  List textWidgets = <Widget>[
-     Text("Text 1", style: TextStyle(
-       fontSize: 30,
-       color: Colors.black
-     ),),
-     Text("Text 2"),
-  ];
-
-
-  int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Search', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Profile',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-  ];
+  int _index = 0;
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _index = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: images.length,
-          itemBuilder: (_, index) {
-            return Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                      images[index]
-                  ),
-                  fit: BoxFit.fitWidth
-                )
-              ),
-              child: Container(
-                margin: const EdgeInsets.only(top: 50, left: 20,  right: 20),
-                child: Row(
-                  children: [
-                    Column(
-                      children:  [
-                        textWidgets[index]
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            );
-          }),
+      body: _getBody(_index),
       bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: "Home",
-                backgroundColor: Colors.grey),
+                backgroundColor: Colors.blue
+            ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.payment),
                 label: "Payment",
-                backgroundColor: Colors.grey),
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
-              label: "Profile",
-              icon: Icon(Icons.person),
-              backgroundColor: Colors.grey,
-            ),
+                label: "Profile",
+                icon: Icon(Icons.person),
+                backgroundColor: Colors.blue),
             BottomNavigationBarItem(
-              label: "Lock",
-              icon: Icon(Icons.lock),
-              backgroundColor: Colors.grey,
-            ),
+                label: "Lock",
+                icon: Icon(Icons.lock),
+                backgroundColor: Colors.blue),
           ],
           type: BottomNavigationBarType.shifting,
-          currentIndex: _selectedIndex,
+          currentIndex: _index,
           selectedItemColor: Colors.black,
+          backgroundColor: Colors.white,
           iconSize: 40,
           onTap: _onItemTapped,
           elevation: 5),
     );
   }
+}
+
+Widget _getBody(int index) {
+  switch (index) {
+    case 0:
+      return homeBody(); // Create this function, it should return your first page as a widget
+    case 1:
+      return const PaymentScreen(); // Create this function, it should return your second page as a widget
+    case 2:
+      return const Profile(); // Create this function, it should return your third page as a widget
+    case 3:
+      return const SignInScreen(); // Create this function, it should return your fourth page as a widget
+  }
+  return Center(
+    child: Text("There is no page builder for this index."),
+  );
 }
