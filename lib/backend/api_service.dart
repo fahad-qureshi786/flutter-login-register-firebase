@@ -8,7 +8,7 @@ import 'const.dart';
 class ApiService {
   Future<List<UserModel>?> getUsers() async {
     try {
-      var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint);
+      var url = Uri.parse(ApiConstants.baseUrl + UserAPIs.usersEndpoint);
       var response = await http.get(url);
       if (response.statusCode == 200) {
         List<UserModel> model = userModelFromJson(response.body);
