@@ -1,4 +1,5 @@
 import 'package:firebaseflutterlogin/screes/signin.dart';
+import 'package:firebaseflutterlogin/splash/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignInScreen(),
+      home: const Splash(),
     );
   }
 }
